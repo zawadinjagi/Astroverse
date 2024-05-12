@@ -1,0 +1,41 @@
+.navbar {
+    width: 100%;
+  }
+  
+  .navbar_content {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .navbar__heading {
+    font-size: 3rem;
+    margin: 15px 0;
+    text-decoration: underline rgb(205, 0, 0) 5px;
+    text-underline-offset: 5px;
+    color: #fff;
+  }
+  
+  .navbar__links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar__link:hover {
+    transform: scale(1.2);
+  }
+  
+  .navbar__link {
+    height: 35px;
+    width: 35px;
+    padding: 2px;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .navbar__link a svg {
+    height: 100%;
+    width: 100%;
+    color: #fff;
+  }
