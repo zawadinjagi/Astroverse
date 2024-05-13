@@ -11,18 +11,21 @@ export const useFetch = () => {
       setLoading(true);
       setError(null);
       const secret = process.env.REACT_APP_API_KEY;
-      const d = new Date();
-      const monthStart = `${d.toISOString().substring(0, 7)}-01`;
-      const monthEnd = `${d.toISOString().substring(0, 10)}`;
-      const res = await axios.get(
-        `https://api.nasa.gov/planetary/apod?api_key=${secret}&start_date=${monthStart}&end_date=${monthEnd}`
-      );
+      const currentDate = new Date();
+      const monthStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+      const monthEnd = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+      const startDateString = monthStart.toISOString().split('T')[0];
+      const endDateString = monthEnd.toISOString().split('T')[0];
+      const url = `https://api.nasa.gov/planetary/apod?api_key=${secret}&start_date=${startDateString}&end_date=${endDateString}`;
+      const res = await axios.get(url);
       setData(res.data);
       setLoading(false);
     } catch (err) {
-      setError(err.message);
+      setError(err.response ? err.response.data.message : err.message);
+      setLoading(false);
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
