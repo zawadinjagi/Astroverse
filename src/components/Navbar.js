@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./Navbar.module.css";
-import { SiNasa } from "react-icons/si";
+import { Route, Routes } from "react-router-dom";
 
 
 const Navbar = () => {
   const navbarLinks = [
  
+    <Routes>
+        
+        <Route exact path="/app"/>
+        
+    </Routes>
    
-    {
-      href: "https://api.nasa.gov/",
-      icon: <SiNasa />,
-      label: "NASA",
-    },
  
   ];
   return (
