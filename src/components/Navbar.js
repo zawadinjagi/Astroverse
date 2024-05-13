@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar_content}>
-        <h1 className={styles.navbar__heading}>Spacestagram</h1>
+        <h1 className={styles.navbar__heading}>Astroverse</h1>
         <div className={styles.navbar__links}>
           {navbarLinks.map((link) => (
             <div className={styles.navbar__link} key={link.label}>
